@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Currency Converter Api
+  description: This is the web API that goes with our currency converter code.
+  contact:
+    name: Alena Blažková
+    email: alena.blazkova116@gmail.com
+    url: https://github.com/AlisBlazkova
+  version: 1.0.0
+paths:
+  /currency_converter/{amount}/{input_currency}/{output_currency}:
+    get:
+      operationId: api.get
+      tags:
+        - currency_converter
+      summary: get_converted_amount
+      description: Get converted amount in json format.
+      parameters:
+        - name: amount
+          in: path
+          description: The amount in a float of the currency which you want to convert.
+          required: true
+          schema:
+            type: integer
+        - name: input_currency
+          in: path
+          description: The currency code or currency symbol which you want to convert.
+          required: true
+          schema:
+            type: string
+        - name: output_currency
+          in: path
+          description: The currency code or currency symbol in which you want to convert.
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful load the converted amount.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    amount:
+                      type: integer
+                    input_currency:
+                      type: string
+                    output_currency:
+                      type: string
+        "500":
+          description: Unsuccessful load the converted amount.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    message:
+                      type: string
+servers:
+  - url: /api
