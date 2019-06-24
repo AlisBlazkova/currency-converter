@@ -12,6 +12,6 @@ def get(amount, input_currency, output_currency):
 
     converter = CurrencyConverter()
     # it returns comma when you do not enter currency to 'output_currency'
-    if output_currency == ',':
-        output_currency = ''
+    if output_currency == ",":
+        output_currency = ""
     return converter.convert(amount, input_currency, output_currency)

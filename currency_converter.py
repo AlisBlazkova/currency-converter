@@ -27,10 +27,7 @@ class CurrencyConverter:
     @staticmethod
     def json_data(amount, input_currency, output_currency):
         output_data = {
-            "input": {
-                "amount": amount,
-                "currency": input_currency,
-            },
+            "input": {"amount": amount, "currency": input_currency},
             "output": output_currency,
         }
 
@@ -45,18 +42,26 @@ class CurrencyConverter:
         :return: The converted amount.
         """
 
-        input_currency, output_currency = self.get_code_from_symbol(input_currency, output_currency)
+        input_currency, output_currency = self.get_code_from_symbol(
+            input_currency, output_currency
+        )
 
         try:
             if output_currency:
-                converted_amount = self.cr.convert(input_currency, output_currency, amount)
+                converted_amount = self.cr.convert(
+                    input_currency, output_currency, amount
+                )
                 output_currency = {output_currency: round(converted_amount, 2)}
-                return CurrencyConverter.json_data(amount, input_currency, output_currency)
+                return CurrencyConverter.json_data(
+                    amount, input_currency, output_currency
+                )
             else:
                 output_currency = self.convert_all_codes(amount, input_currency)
-                return CurrencyConverter.json_data(amount, input_currency, output_currency)
+                return CurrencyConverter.json_data(
+                    amount, input_currency, output_currency
+                )
         except:
-            return {'message': 'Currency code or symbol is not supported.'}, 500
+            return {"message": "Currency code or symbol is not supported."}, 500
 
     def convert_all_codes(self, amount, input_currency):
         """
@@ -65,4 +70,4 @@ class CurrencyConverter:
         """
 
         rates_all_codes = self.cr.get_rates(input_currency)
-        return {key: round(value*amount, 2) for key, value in rates_all_codes.items()}
+        return {key: round(value * amount, 2) for key, value in rates_all_codes.items()}
