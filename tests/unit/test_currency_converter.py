@@ -65,35 +65,3 @@ class TestCurrencyConverter(TestCase):
         expected = {'message': 'Currency code or symbol is not supported.'}, 500
 
         self.assertEqual(conversion, expected)
-
-    def test_json_data_with_codes(self):
-        cc = CurrencyConverter()
-        conversion = cc.convert(100, 'EUR', 'CZK')
-        expected = {
-            "input": {
-                "amount": 100.0,
-                "currency": "EUR"
-            },
-            "output": {
-                "CZK": 2560.9
-            }
-        }
-
-        self.assertEqual(conversion, expected,
-                         f"The JSON export of the currency is incorrect. Received {conversion}, expected {expected}.")
-
-    def test_json_data_with_symbols(self):
-        cc = CurrencyConverter()
-        conversion = cc.convert(1.6, '€', '¥')
-        expected = {
-            "input": {
-                "amount": 1.6,
-                "currency": "EUR"
-            },
-            "output": {
-                "CNY": 12.45
-            }
-        }
-
-        self.assertEqual(conversion, expected,
-                         f"The JSON export of the currency is incorrect. Received {conversion}, expected {expected}.")
