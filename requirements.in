@@ -2,3 +2,4 @@ click
 forex-python
 connexion
 connexion[swagger-ui]
+pre-commit
