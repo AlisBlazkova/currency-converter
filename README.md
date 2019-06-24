@@ -1,4 +1,4 @@
-# Currency Converter
+# Currency Converter [![Build Status](https://travis-ci.org/AlisBlazkova/currency-converter.svg?branch=master)](https://travis-ci.org/AlisBlazkova/currency-converter)
 Entry task for Kiwi.com
 
 The project with Click, Forex Python, web API, Connexion, Swagger UI, Unit test and Travis CI.
