@@ -4,34 +4,81 @@
 #
 #    pip-compile requirements.in
 #
-aspy.yaml==1.3.0          # via pre-commit
-certifi==2019.6.16        # via requests
-cfgv==2.0.0               # via pre-commit
-chardet==3.0.4            # via requests
+aspy-yaml==1.3.0
+    # via pre-commit
+certifi==2022.12.7
+    # via requests
+cfgv==2.0.0
+    # via pre-commit
+chardet==3.0.4
+    # via requests
 click==7.0
-clickclick==1.2.2         # via connexion
+    # via
+    #   -r requirements.in
+    #   clickclick
+    #   flask
+clickclick==1.2.2
+    # via connexion
 connexion[swagger-ui]==2.3.0
-flask==1.0.3              # via connexion
+    # via -r requirements.in
+flask==1.0.3
+    # via connexion
 forex-python==1.5
-identify==1.4.5           # via pre-commit
-idna==2.8                 # via requests
-importlib-metadata==0.18  # via pre-commit
-importlib-resources==1.0.2  # via pre-commit
-inflection==0.3.1         # via connexion
-itsdangerous==1.1.0       # via flask
-jinja2==2.10.1            # via flask, swagger-ui-bundle
-jsonschema==2.6.0         # via connexion, openapi-spec-validator
-markupsafe==1.1.1         # via jinja2
-nodeenv==1.3.3            # via pre-commit
-openapi-spec-validator==0.2.7  # via connexion
+    # via -r requirements.in
+identify==1.4.5
+    # via pre-commit
+idna==2.8
+    # via requests
+importlib-metadata==0.18
+    # via pre-commit
+inflection==0.3.1
+    # via connexion
+itsdangerous==1.1.0
+    # via flask
+jinja2==2.10.1
+    # via
+    #   flask
+    #   swagger-ui-bundle
+jsonschema==2.6.0
+    # via
+    #   connexion
+    #   openapi-spec-validator
+markupsafe==1.1.1
+    # via jinja2
+nodeenv==1.3.3
+    # via pre-commit
+openapi-spec-validator==0.2.7
+    # via connexion
 pre-commit==1.17.0
-pyyaml==5.1.1             # via aspy.yaml, clickclick, connexion, openapi-spec-validator, pre-commit
-requests==2.22.0          # via connexion, forex-python
-simplejson==3.16.0        # via forex-python
-six==1.12.0               # via cfgv, connexion, openapi-spec-validator, pre-commit
-swagger-ui-bundle==0.0.5  # via connexion
-toml==0.10.0              # via pre-commit
-urllib3==1.25.3           # via requests
-virtualenv==16.6.1        # via pre-commit
-werkzeug==0.15.4          # via flask
-zipp==0.5.1               # via importlib-metadata
+    # via -r requirements.in
+pyyaml==5.1.1
+    # via
+    #   aspy-yaml
+    #   clickclick
+    #   connexion
+    #   openapi-spec-validator
+    #   pre-commit
+requests==2.22.0
+    # via
+    #   connexion
+    #   forex-python
+simplejson==3.16.0
+    # via forex-python
+six==1.12.0
+    # via
+    #   cfgv
+    #   connexion
+    #   openapi-spec-validator
+    #   pre-commit
+swagger-ui-bundle==0.0.5
+    # via connexion
+toml==0.10.0
+    # via pre-commit
+urllib3==1.25.3
+    # via requests
+virtualenv==16.6.1
+    # via pre-commit
+werkzeug==0.15.4
+    # via flask
+zipp==0.5.1
+    # via importlib-metadata
